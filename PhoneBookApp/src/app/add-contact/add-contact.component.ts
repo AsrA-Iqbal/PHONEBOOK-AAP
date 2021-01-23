@@ -86,11 +86,11 @@ deleteContact(id:number){
 Edit(id:number){
   this.contactrecord.editrecord(id);
   this.contactrecord.editform;
-  //  this.lname=this.ContactForm.get( 'lname' ).value;
-  //  this.wplace=this.ContactForm.get( 'wplace' ).value;
-  //  this.contact=this.ContactForm.get( 'contact' ).value;
-  //  this.email=this.ContactForm.get( 'email' ).value;
-   console.log(this.name)
+   this.lname=this.ContactForm.get( 'lname' ).value;
+   this.wplace=this.ContactForm.get( 'wplace' ).value;
+   this.contact=this.ContactForm.get( 'contact' ).value;
+   this.email=this.ContactForm.get( 'email' ).value;
+   console.log(this.lname)
 }
 
 }
