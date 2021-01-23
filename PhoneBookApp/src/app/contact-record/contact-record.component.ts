@@ -20,7 +20,10 @@ var ELEMENT_DATA: ContactRecords[] = [
 })
 export class ContactRecordComponent implements OnInit {
 
-  idForContact: number = 4;
+  idForContact: number = 5;
+  data:any
+  tablerecords: any;
+
   displayedColumns: string[] = ['id', 'name', 'lname', 'contact', 'wplace', 'email', 'action']
   dataSource = ELEMENT_DATA;
   constructor(private dialog: MatDialog) { }
@@ -35,10 +38,27 @@ export class ContactRecordComponent implements OnInit {
       data: this.dataSource,
     });
     dialogRef.afterClosed().subscribe(result => {
-
-      console.log('The dialog was closed');
+   console.log('The dialog was closed');
 
     });
+  }
+
+  
+  deleteRecord(items) {
+    console.log(items)
+      this.data =items
+    this.dataSource = this.dataSource.filter(table => table !== items);
+    this.tablerecords = JSON.parse(localStorage.getItem('my_records'));
+    console.log(this.tablerecords)
+    for (var i = 0; i < this.tablerecords.length; ++i) {
+      if (this.tablerecords[i].id === items.id) {
+        this.tablerecords.splice(i, 1);
+        console.log(this.tablerecords)
+      }
+      this.idForContact = 5;
+      localStorage.setItem("my_records", JSON.stringify(this.tablerecords))
+    }
+
   }
 
   ngOnInit() {

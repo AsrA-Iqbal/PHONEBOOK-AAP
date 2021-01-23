@@ -47,7 +47,7 @@ export class AddContactComponent implements OnInit {
   addContact() {
     if (this.obj.length >= 4)
     for(var i=0; i <this.obj.length; i++){
-      if(this.obj[i].id === 4){
+      if(this.obj[i].id === 5){
         this.contactrecord.idForContact++;break;
   }
 }
@@ -67,6 +67,11 @@ this.obj.push(
   console.log(storedcontacts)
   this.contactrecord.idForContact = this.obj[this.obj.length-1].id;
   console.log(this.obj)
+}
+
+
+deleteContact(id:number){
+  this.contactrecord.deleteRecord(id);
 }
 
 }
