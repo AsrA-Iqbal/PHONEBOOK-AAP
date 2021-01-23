@@ -23,6 +23,7 @@ export class ContactRecordComponent implements OnInit {
   idForContact: number = 5;
   data:any
   tablerecords: any;
+  editform:false;
 
   displayedColumns: string[] = ['id', 'name', 'lname', 'contact', 'wplace', 'email', 'action']
   dataSource = ELEMENT_DATA;
@@ -59,6 +60,19 @@ export class ContactRecordComponent implements OnInit {
       localStorage.setItem("my_records", JSON.stringify(this.tablerecords))
     }
 
+  }
+
+  editrecord(items){
+    console.log(items)
+    var dialogRef = this.dialog.open(AddContactComponent, {
+      width: "100%",
+      height: "50%",
+      data: items,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+      this.editform;
+    });
   }
 
   ngOnInit() {

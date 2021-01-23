@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ContactRecordComponent } from '../contact-record/contact-record.component';
 import { ContactRecords } from '../contact-records';
@@ -25,6 +25,15 @@ export class AddContactComponent implements OnInit {
   email = new FormControl('', [Validators.required]);
 
 
+  
+  ContactForm=new FormGroup( {
+    name: new FormControl( '' ),
+    lname: new FormControl( '' ),
+    wplace: new FormControl( '' ),
+    contact: new FormControl( '' ),
+    email: new FormControl( '' ),
+  });
+  
   ngOnInit() {
   }
 
@@ -72,6 +81,16 @@ this.obj.push(
 
 deleteContact(id:number){
   this.contactrecord.deleteRecord(id);
+}
+
+Edit(id:number){
+  this.contactrecord.editrecord(id);
+  this.contactrecord.editform;
+  //  this.lname=this.ContactForm.get( 'lname' ).value;
+  //  this.wplace=this.ContactForm.get( 'wplace' ).value;
+  //  this.contact=this.ContactForm.get( 'contact' ).value;
+  //  this.email=this.ContactForm.get( 'email' ).value;
+   console.log(this.name)
 }
 
 }
