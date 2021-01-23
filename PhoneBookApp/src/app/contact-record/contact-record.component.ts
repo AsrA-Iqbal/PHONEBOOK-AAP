@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactRecords } from '../contact-records';
+import { MatDialog } from '@angular/material/dialog';
+import { AddContactComponent } from '../add-contact/add-contact.component';
 
 
 
@@ -20,7 +22,23 @@ export class ContactRecordComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'lname', 'contact', 'wplace', 'email', 'action']
   dataSource = ELEMENT_DATA;
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
+
+
+
+  
+  opendialog() {
+    var dialogRef = this.dialog.open(AddContactComponent, {
+      width: "100%",
+      height: "50%",
+      data: this.dataSource,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
+      console.log('The dialog was closed');
+
+    });
+  }
 
   ngOnInit(): void {
   }
