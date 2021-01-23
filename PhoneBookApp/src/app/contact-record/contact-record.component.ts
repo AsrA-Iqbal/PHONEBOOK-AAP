@@ -20,6 +20,7 @@ var ELEMENT_DATA: ContactRecords[] = [
 })
 export class ContactRecordComponent implements OnInit {
 
+  idForContact: number = 4;
   displayedColumns: string[] = ['id', 'name', 'lname', 'contact', 'wplace', 'email', 'action']
   dataSource = ELEMENT_DATA;
   constructor(private dialog: MatDialog) { }
@@ -40,7 +41,9 @@ export class ContactRecordComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.dataSource = JSON.parse(localStorage.getItem('my_records'))
+    console.log(this.dataSource);
   }
 
 }

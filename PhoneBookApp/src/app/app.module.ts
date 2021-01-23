@@ -42,7 +42,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ContactRecordComponent],
   entryComponents:[AddContactComponent],
   bootstrap: [AppComponent]
 })
