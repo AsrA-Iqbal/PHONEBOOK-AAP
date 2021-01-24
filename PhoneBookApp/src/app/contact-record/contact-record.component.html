@@ -1,13 +1,17 @@
+
+<div fxLayoutAlign="center start" fxLayout="column" fxLayoutGap="15px"  class="main-div">
+
 <!-- <button mat-raised-button color="primary" (click)="show_hide_details()">
     <span *ngIf="showHideDetails== true">Hide ID</span>
     <span *ngIf="showHideDetails== false">Show ID</span>
 </button> -->
-<mat-toolbar color="primary">PHONE BOOK<div fxLayout="row" fxLayoutAlign="end center">
+
+<mat-toolbar fxFlex="25" fxFlexAlign="center"  color="primary">PHONE BOOK<div fxFlex="95" fxLayout="row"  fxLayoutAlign="end stretch" >
         <mat-icon (click)="opendialog()">home</mat-icon>
     </div>
 </mat-toolbar>
 <br>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" fxFlex= "25"  fxFlexAlign="stretch">
 
     <ng-container matColumnDef="id">
         <!-- <th mat-header-cell [ngStyle]="{display: showHideDetails === true? 'table-cell' : 'none'}" *matHeaderCellDef>ID
@@ -52,7 +56,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns:displayedColumns;" ></tr>
 </table>
-
+</div>
 <!--  (mouseover)="show=true" (mouseout)="show=false" <mat-checkbox  
                     ></mat-checkbox>  [style.opacity]="show ? 1 : 0"(click)="$event.stopPropagation()"
                     (change)="selection[0]=$event.isChecked"

@@ -5,10 +5,14 @@ import { ContactRecordComponent } from './contact-record/contact-record.componen
 import { AddContactComponent } from './add-contact/add-contact.component';
 
 const routes: Routes = [{
-  path:'',component:LoginComponent
+  path: '', component: LoginComponent, 
+  // children: [
+  //   { path: 'contact-record', component: ContactRecordComponent },
+  //   { path: 'add-contact', component: AddContactComponent }
+  // ]
 },
-{path:'contact-record',component:ContactRecordComponent},
-{path:'add-contact',component:AddContactComponent}
+{ path: 'contact-record', component: ContactRecordComponent },
+{ path: 'add-contact', component: AddContactComponent }
 ];
 
 @NgModule({
