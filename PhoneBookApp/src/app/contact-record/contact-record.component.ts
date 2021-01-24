@@ -24,6 +24,8 @@ export class ContactRecordComponent implements OnInit {
   data:any
   tablerecords: any;
   editform:false;
+index;
+editobj:ContactRecords[]=[];
 
   displayedColumns: string[] = ['id', 'name', 'lname', 'contact', 'wplace', 'email', 'action']
   dataSource = ELEMENT_DATA;
@@ -72,12 +74,27 @@ export class ContactRecordComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
       this.editform;
+      this.index = this.dataSource.indexOf(items)
+     console.log(this.index);
+  //    this.editobj[this.index].push({
+  //     id:id,
+  //     name:this.name.value,
+  //     lname: this.lname.value,
+  //     contact: this.contact.value,
+  //     wplace: this.wplace.value,
+  //     email: this.email.value
+  //   })
+  // console.log(this.obj)
+    //  this.dataSource[this.index].name =(items.name)   
+    //  console.log(items.name) // if(items)
     });
+
   }
 
   ngOnInit() {
     this.dataSource = JSON.parse(localStorage.getItem('my_records'))
     console.log(this.dataSource);
+    // this.editobj= this.dataSource;
   }
 
 }

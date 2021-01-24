@@ -1,4 +1,5 @@
 export interface ContactRecords {
+  [x: string]: any;
     id:number;
     name:string;
     lname:string;

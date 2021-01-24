@@ -85,12 +85,42 @@ deleteContact(id:number){
 
 Edit(id:number){
   this.contactrecord.editrecord(id);
+  // this.contactrecord.editobj[this.contactrecord.index].push(
+  //   {
+  //     name: this.name.value,
+  //     lname: this.lname.value,
+  //     contact: this.contact.value,
+  //     wplace: this.wplace.value,
+  //     email: this.email.value
+  //   }
+  // )
   this.contactrecord.editform;
+  // this.contactrecord.editobj = this.obj;
+  // this.contactrecord.editobj[this.contactrecord.index].push({
+  //   id:id,
+  //   name:this.name.value,
+  //   lname: this.lname.value,
+  //   contact: this.contact.value,
+  //   wplace: this.wplace.value,
+  //   email: this.email.value
+  // })
+  this.obj[this.contactrecord.index].push({
+    id:id,
+    name:this.name.value,
+    lname: this.lname.value,
+    contact: this.contact.value,
+    wplace: this.wplace.value,
+    email: this.email.value
+  })
+console.log(this.obj)
+
+  this.name=this.ContactForm.get('name').value;
    this.lname=this.ContactForm.get( 'lname' ).value;
    this.wplace=this.ContactForm.get( 'wplace' ).value;
    this.contact=this.ContactForm.get( 'contact' ).value;
    this.email=this.ContactForm.get( 'email' ).value;
    console.log(this.lname)
+   
 }
 
 }
